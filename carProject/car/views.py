@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-
-from carProject.car.forms import CarCreateForm
+from django.urls import reverse_lazy
+from django.views.generic import TemplateView, CreateView
 from carProject.car.models import Car
 
 
@@ -15,17 +15,11 @@ def car_catalogue(request):
 
     return render(request, 'car/car-collection.html', context)
 
-def car_create(request):
-    car_create_form = CarCreateForm(request.POST or None)
-    if request.method == "POST":
-        if car_create_form.is_valid():
-            car_create_form.save()
-            return redirect('index')
-    context = {
-        'car_create_form': car_create_form
-    }
-    return render(request, 'car/car-add.html', context)
-
+class CarCreateView(CreateView):
+    model = Car
+    template_name = 'car/car-add.html'
+    fields = '__all__'
+    success_url = reverse_lazy('car-catalogue')
 
 def car_details(request, pk):
     return HttpResponse('Details page')
