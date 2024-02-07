@@ -1,0 +1,20 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+{% if all_cars %}
+    <h2>Car Collection</h2>
+    <section id="dashboard">
+        {% for car in all_cars %}
+        <div class="fruit">
+
+            <img src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
+            <h3 class="title">Model: {{ car.model }}</h3>
+            <p class="description">Year: {{ car.year }}</p>
+            <a class="details-btn" href="{% url 'car-details' pk=car.pk %}">More Info</a>
+        </div>
+        {% endfor %}
+    </section>
+{% else %}
+    <h2>Car Catalogue is empty.</h2>
+{% endif %}
+{% endblock %}
