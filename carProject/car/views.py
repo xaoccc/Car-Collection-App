@@ -1,5 +1,5 @@
 from django.urls import reverse_lazy
-from django.views.generic import DetailView, FormView, ListView, UpdateView, DeleteView
+from django.views.generic import DetailView, FormView, ListView, UpdateView, DeleteView, CreateView
 from carProject.car.models import Car
 from carProject.car.forms import CarCreateForm
 
@@ -9,10 +9,13 @@ class CarListView(ListView):
     template_name = 'car/car-collection.html'
     context_object_name = 'all_cars'
 
-class CarCreateView(FormView):
+class CarCreateView(CreateView):
     model = Car
     form_class = CarCreateForm
     template_name = 'car/car-add.html'
+
+
+
 
 
 class CarEditView(UpdateView):

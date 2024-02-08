@@ -9,7 +9,7 @@
             <img src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
             <h3 class="title">Model: {{ car.model }}</h3>
             <p class="description">Year: {{ car.year }}</p>
-            <a class="details-btn" href="{% url 'car-details' pk=car.pk %}">More Info</a>
+            <a class="details-btn" href="{% url 'car-details' pk=car.pk %}">Details</a>
         </div>
         {% endfor %}
     </section>
