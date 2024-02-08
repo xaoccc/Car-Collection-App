@@ -34,7 +34,15 @@ main {
 
 .home {
     font-size: 2em;
+}
 
+form div, form p {
+    display: flex;
+    justify-content: space-between;
+}
+
+form small {
+    color: blue;
 }
 
 ul {

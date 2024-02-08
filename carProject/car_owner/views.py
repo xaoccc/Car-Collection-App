@@ -20,7 +20,7 @@ def profile_create(request):
 class ProfileCreateView(CreateView):
     model = Profile
     template_name = 'profile/profile-add.html'
-    fields = '__all__'
+    fields = ['username', 'email', 'age', 'password']
     success_url = reverse_lazy('index')
 
 

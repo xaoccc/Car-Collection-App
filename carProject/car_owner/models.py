@@ -8,7 +8,7 @@ from carProject.car_owner.validators import char_validator
 class Profile(models.Model):
     username = models.CharField(max_length=10, validators=[MinLengthValidator(2, "Username must be at least 2 chars long!"), char_validator])
     email = models.EmailField()
-    age = models.PositiveIntegerField(validators=[MinValueValidator(18, "Age requirement: 18 years and above.")])
+    age = models.PositiveIntegerField(validators=[MinValueValidator(18, "Age requirement: 18 years and above.")], help_text="Age requirement: 18 years and above.")
     first_name = models.CharField(max_length=30, blank=True, null=True)
     last_name = models.CharField(max_length=30, blank=True, null=True)
     profile_picture = models.URLField(blank=True, null=True)
