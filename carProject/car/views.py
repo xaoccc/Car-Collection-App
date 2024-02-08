@@ -19,7 +19,6 @@ class CarCreateView(CreateView):
     model = Car
     template_name = 'car/car-add.html'
     fields = '__all__'
-    success_url = reverse_lazy('car-catalogue')
 
 def car_details(request, pk):
     return HttpResponse('Details page')
