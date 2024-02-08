@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Details about profile with username {{ profile.username }}:</h1>
+    <div class="details">
+        <img src="{{ profile.profile_picture }}" alt="{{ profile.first_name }} {{ profile.last_name }}"/>
+        <p>Name: {{ profile.first_name }} {{ profile.last_name }}</p>
+        <p>Age: {{ profile.age }}</p>
+        <p>Email: {{ profile.email }}</p>
+    </div>
+{% endblock %}

@@ -9,27 +9,73 @@ body {
     Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
     background: #fafafa;
     min-height: 100vh;
+    background-color: #060C20;
+    color: rgb(256,256,256);
+}
+
+
+nav {
+    background-color: #0D2138;
+    padding: 1.5em;
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.right-nav-link {
+    font-size: 1.2em;
+}
+
+.home {
+    font-size: 2em;
+
 }
 
 ul {
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    text-transform: uppercase;
 }
+
 
 ul li {
     list-style-type: none;
-    display: inline-block;
+    display: block;
+    margin-left: 1em;
 }
-
 a {
     text-decoration: none;
+    color: rgb(256,256,256);
 }
 
 h1 {
     text-align: center;
 }
 
-.dashboard img, .car-details img {
+.main-heading {
+    position: relative;
+    top: 3em;
+    right: 4em;
+    max-width: 8em;
+    font-size: 4rem;
+    text-transform: uppercase;
+    line-height: 0.8;
+}
+
+.main-img {
+    position: relative;
+    left: 4em;
+    z-index: -1;
+}
+
+.dashboard img, .details img {
     max-width: 20rem;
 }
 
@@ -40,7 +86,7 @@ h1 {
     justify-content: space-evenly;
 }
 
-.car-details {
+.details {
     display: flex;
     flex-direction: column;
     max-width: 20rem;
