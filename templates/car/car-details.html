@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <h1>Details about car with id {{ car.id }}:</h1>
+    <div class="car-details">
+        <img src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
+        <p>Model: {{ car.type }}</p>
+        <p>Model: {{ car.model }}</p>
+        <p>Production Year: {{ car.year }}</p>
+        <p>Price: ${{ car.price }}</p>
+        <p>Owner: {{ car.owner.first_name }} {{ car.owner.last_name }}</p>
+    </div>
+{% endblock %}
