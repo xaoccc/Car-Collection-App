@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, ListView, UpdateView, DeleteView
 from carProject.car_owner.models import Profile
+from carProject.car_owner.forms import ProfileCreateForm
 
 
 # Create your views here.
@@ -14,11 +15,8 @@ def index(request):
     return render(request, "common/index.html", context)
 
 class ProfileCreateView(CreateView):
-    model = Profile
+    form_class = ProfileCreateForm
     template_name = 'profile/profile-add.html'
-    fields = ['username', 'email', 'age', 'password']
-    success_url = reverse_lazy('index')
-
 
 class ProfileDetailView(DetailView):
     model = Profile
