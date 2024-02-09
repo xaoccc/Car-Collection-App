@@ -1,5 +1,6 @@
 from django.core.validators import MinValueValidator, MinLengthValidator
 from django.db import models
+from django.db.models import Sum
 from django.urls import reverse
 
 from carProject.car_owner.validators import char_validator
@@ -19,4 +20,8 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.username
+
+    @property
+    def total_car_price(self):
+        return self.cars.aggregate(total_price=Sum('price'))['total_price'] or 0.0
 

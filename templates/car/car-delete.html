@@ -1,8 +1,29 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
+
     <form method="post">
-        {{ form.as_div }}
+        <div>
+            <label>Type:</label>
+            <input type="text" disabled="disabled" value="{{ car.type }}">
+        </div>
+        <div>
+            <label>Model:</label>
+            <input type="text" readonly="readonly" value="{{ car.model }}">
+        </div>
+        <div>
+            <label>Year:</label>
+            <input type="text" readonly="readonly" value="{{ car.year }}">
+        </div>
+        <div>
+            <label>Image URL:</label>
+            <input type="text" readonly="readonly" value="{{ car.image_url }}">
+        </div>
+        <div>
+            <label>Price:</label>
+            <input type="text" readonly="readonly" value="{{ car.price }}">
+        </div>
+        {{ form }}
         {% csrf_token %}
         <button type="submit">Delete Car</button>
     </form>

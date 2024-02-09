@@ -7,8 +7,8 @@ urlpatterns = [
         include([
             path('create/', views.ProfileCreateView.as_view(), name='profile-create'),
             path('<int:pk>/details/', views.ProfileDetailView.as_view(), name='profile-details'),
-            path('<int:pk>/edit/', views.profile_edit, name='profile-edit'),
-            path('<int:pk>/delete/', views.profile_delete, name='profile-delete'),
+            path('<int:pk>/edit/', views.ProfileEditView.as_view(), name='profile-edit'),
+            path('<int:pk>/delete/', views.ProfileDeleteView.as_view(), name='profile-delete'),
         ])
     ),
 ]

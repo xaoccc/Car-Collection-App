@@ -1,11 +1,15 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Details about profile with username {{ profile.username }}:</h1>
+    <h1>Profile Details</h1>
     <div class="details">
         <img src="{{ profile.profile_picture }}" alt="{{ profile.first_name }} {{ profile.last_name }}"/>
-        <p>Name: {{ profile.first_name }} {{ profile.last_name }}</p>
-        <p>Age: {{ profile.age }}</p>
+        <p>Username: {{ profile.username }} </p>
         <p>Email: {{ profile.email }}</p>
+        <p>Age: {{ profile.age }}</p>
+        <p>Total price: {{ profile.total_car_price }}</p>
+        <a href="{% url 'profile-edit' pk=profile.id %}">Edit</a>
+        <a href="{% url 'profile-delete' pk=profile.id %}">Delete</a>
     </div>
+
 {% endblock %}

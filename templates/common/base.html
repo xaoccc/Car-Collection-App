@@ -14,20 +14,20 @@
               <a class="home" href="{% url 'index' %}">Car Collection</a>
           </div>
         <ul>
-          {% if profile %}
-          <li>
-            <a class="right-nav-link" href="{% url 'car-catalogue' %}">Catalogue</a>
-          </li>
-          <li>
-            <a class="right-nav-link" href="{% url 'car-create' %}">Create Car</a>
-          </li>
-          <li>
-            <a class="right-nav-link" href="{% url 'profile-details' pk=1 %}">Profile</a>
-          </li>
+          {% if profile.first.id  %}
+              <li>
+                <a class="right-nav-link" href="{% url 'car-catalogue' %}">Catalogue</a>
+              </li>
+              <li>
+                <a class="right-nav-link" href="{% url 'car-create' %}">Create Car</a>
+              </li>
+              <li>
+                <a class="right-nav-link" href="{% url 'profile-details' pk=profile.first.id %}">Profile</a>
+              </li>
           {% else %}
-          <li>
-            <a class="right-nav-link" href="{% url 'profile-create' %}">Create Profile</a>
-          </li>
+              <li>
+                <a class="right-nav-link" href="{% url 'profile-create' %}">Create Profile</a>
+              </li>
           {% endif %}
         </ul>
       </nav>

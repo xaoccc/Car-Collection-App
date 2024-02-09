@@ -24,9 +24,13 @@ class ProfileDetailView(DetailView):
     context_object_name = 'profile'
 
 
-def profile_edit(request):
-    return HttpResponse('Edit page')
+class ProfileEditView(UpdateView):
+    model = Profile
+    template_name = 'profile/profile-edit.html'
+    fields = '__all__'
 
 
-def profile_delete(request):
-    return HttpResponse('Delete page')
+class ProfileDeleteView(DeleteView):
+    model = Profile
+    template_name = 'profile/profile-delete.html'
+    success_url = reverse_lazy('index')
