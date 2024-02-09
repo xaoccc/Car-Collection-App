@@ -96,7 +96,28 @@ h1 {
 
 .details {
     display: flex;
-    flex-direction: column;
-    max-width: 20rem;
+    width: 40rem;
     margin: auto;
+    flex-direction: column;
+}
+
+.details-wrapper {
+    display: flex;
+}
+
+.details-wrapper img {
+    display: block;
+}
+
+.details-text {
+    margin-left: 2em;
+}
+
+.edit-delete {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-delete a {
+    margin-left: 1em;
 }

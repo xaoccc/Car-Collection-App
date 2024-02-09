@@ -1,36 +1,49 @@
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, FormView, ListView, UpdateView, DeleteView, CreateView
 from carProject.car.models import Car
-from carProject.car.forms import CarCreateForm
+from carProject.car_owner.models import Profile
+from carProject.car.forms import CarCreateForm, CarDeleteForm
 
+class GetProfileMixin:
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = Profile.objects.first()
+        return context
 
-class CarListView(ListView):
+class CarListView(GetProfileMixin, ListView):
     model = Car
     template_name = 'car/car-collection.html'
     context_object_name = 'all_cars'
 
-class CarCreateView(CreateView):
+
+class CarCreateView(GetProfileMixin, CreateView):
     model = Car
     form_class = CarCreateForm
     template_name = 'car/car-add.html'
 
 
-
-
-
-class CarEditView(UpdateView):
+class CarEditView(GetProfileMixin, UpdateView):
     model = Car
     template_name = 'car/car-edit.html'
     fields = '__all__'
 
-class CarDeleteView(DeleteView):
+
+class CarDeleteView(GetProfileMixin, DeleteView):
     model = Car
+    form_class = CarDeleteForm
     template_name = 'car/car-delete.html'
-    fields = '__all__'
     success_url = reverse_lazy('car-catalogue')
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
-class CarTemplateView(DetailView):
+        car = self.get_object()
+
+        context['form'].fields['type'].widget.attrs['placeholder'] = car.type
+        return context
+
+class CarDetailView(GetProfileMixin, DetailView):
     model = Car
     template_name = 'car/car-details.html'
     context_object_name = 'car'
+

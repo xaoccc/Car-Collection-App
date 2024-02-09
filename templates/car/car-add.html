@@ -2,15 +2,7 @@
 {% load static %}
 {% block content %}
     <form method="post">
-        {% for field in form %}
-            <div>
-                {{ field.label_tag }}
-                {{ field }}
-                {{ field.placeholders }}
-            </div>
-
-
-        {% endfor %}
+        {{ form.as_div }}
         {% csrf_token %}
         <button type="submit">Create Car</button>
     </form>

@@ -1,14 +1,22 @@
 {% extends 'common/base.html' %}
 {% load static %}
 {% block content %}
-    <h1>Details about car with id {{ car.id }}:</h1>
+    <h1>Car Details</h1>
     <div class="details">
-        <img src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
-        <p>Model: {{ car.type }}</p>
-        <p>Model: {{ car.model }}</p>
-        <p>Year: {{ car.year }}</p>
-        <p>Price: ${{ car.price }}</p>
-        <a href="{% url 'car-edit' pk=car.id %}">Edit</a>
-        <a href="{% url 'car-delete' pk=car.id %}">Delete</a>
+        <div class="details-wrapper">
+            <img src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
+            <div class="details-text">
+                <p>{{ car.type }}</p>
+                <p>Model: {{ car.model }}</p>
+                <p>Year: {{ car.year }}</p>
+                <p>Price: ${{ car.price }}</p>
+            </div>
+        </div>
+
+        <div class="edit-delete">
+            <a href="{% url 'car-edit' pk=car.id %}">Edit</a>
+            <a href="{% url 'car-delete' pk=car.id %}">Delete</a>
+        </div>
     </div>
+
 {% endblock %}

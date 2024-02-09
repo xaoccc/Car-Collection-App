@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
     <form method="post">
-        {{ form.as_p }}
+        {{ form.as_div }}
         {% csrf_token %}
         <button type="submit">Delete Car</button>
     </form>

@@ -4,7 +4,7 @@ from django.urls import reverse
 
 from carProject.car_owner.validators import char_validator
 
-# Create your models here.
+
 class Profile(models.Model):
     username = models.CharField(max_length=10, validators=[MinLengthValidator(2, "Username must be at least 2 chars long!"), char_validator])
     email = models.EmailField()
@@ -16,4 +16,7 @@ class Profile(models.Model):
 
     def get_absolute_url(self):
         return reverse('index', args=[])
+
+    def __str__(self):
+        return self.username
 
