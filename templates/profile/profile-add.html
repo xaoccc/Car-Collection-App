@@ -8,6 +8,7 @@
                 {{ field }}
             </div>
             <small>{{ field.help_text }}</small>
+            {{ field.errors }}
         {% endfor %}
         {% csrf_token %}
         <button type="submit">Create Profile</button>

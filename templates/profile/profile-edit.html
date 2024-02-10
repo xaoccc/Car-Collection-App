@@ -2,7 +2,18 @@
 {% load static %}
 {% block content %}
     <form method="post">
-        {{ form.as_p }}
+        {% for field in form %}
+            <div>
+                {{ field.label_tag }}
+                {{ field }}
+
+            </div>
+                {% if field.name == 'age' %}
+                    <small class="helptext">{{ field.help_text }}</small>
+                {% endif %}
+                {{ field.errors }}
+        {% endfor %}
+
         {% csrf_token %}
         <button type="submit">Edit Profile</button>
     </form>

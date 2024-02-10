@@ -2,7 +2,7 @@ from django.urls import path, include
 from carProject.car_owner import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.IndexView.as_view(), name='index'),
     path('profile/',
         include([
             path('create/', views.ProfileCreateView.as_view(), name='profile-create'),

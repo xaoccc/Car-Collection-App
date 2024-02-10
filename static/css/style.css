@@ -41,8 +41,13 @@ form div, form p {
     justify-content: space-between;
 }
 
-form small {
-    color: blue;
+.helptext {
+    color: azure;
+}
+
+.errorlist {
+    color: red;
+    font-weight: 700;
 }
 
 ul {

@@ -1,18 +1,13 @@
-from django.http import HttpResponse
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, CreateView, ListView, UpdateView, DeleteView
 from carProject.car_owner.models import Profile
-from carProject.car_owner.forms import ProfileCreateForm
+from carProject.car_owner.forms import ProfileCreateForm, ProfileEditForm
 
 
-# Create your views here.
-def index(request):
-    profile = Profile.objects.all()
-    context = {
-        'profile': profile
-    }
-    return render(request, "common/index.html", context)
+class IndexView(ListView):
+    model = Profile
+    template_name = 'common/index.html'
+    context_object_name = 'profile'
 
 class ProfileCreateView(CreateView):
     form_class = ProfileCreateForm
@@ -26,8 +21,9 @@ class ProfileDetailView(DetailView):
 
 class ProfileEditView(UpdateView):
     model = Profile
+    form_class = ProfileEditForm
     template_name = 'profile/profile-edit.html'
-    fields = '__all__'
+
 
 
 class ProfileDeleteView(DeleteView):
