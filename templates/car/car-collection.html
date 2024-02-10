@@ -6,7 +6,7 @@
     <section class="dashboard">
         {% for car in all_cars %}
         <div class="car">
-            <img src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
+            <img class="car-picture-small" src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
             <h3 class="title">Model: {{ car.model }}</h3>
             <p class="description">Year: {{ car.year }}</p>
             <a class="details-btn" href="{% url 'car-details' pk=car.pk %}">Details</a>

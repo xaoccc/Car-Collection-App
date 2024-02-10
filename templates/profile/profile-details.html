@@ -3,13 +3,26 @@
 {% block content %}
     <h1>Profile Details</h1>
     <div class="details">
-        <img src="{{ profile.profile_picture }}" alt="{{ profile.first_name }} {{ profile.last_name }}"/>
-        <p>Username: {{ profile.username }} </p>
-        <p>Email: {{ profile.email }}</p>
-        <p>Age: {{ profile.age }}</p>
-        <p>Total price: {{ profile.total_car_price }}</p>
-        <a href="{% url 'profile-edit' pk=profile.id %}">Edit</a>
-        <a href="{% url 'profile-delete' pk=profile.id %}">Delete</a>
+        <div class="details-wrapper">
+            <div class="image-wrapper">
+                {% if profile.profile_picture %}
+                    <img class="profile-picture" src="{{ profile.profile_picture }}" alt="{{ profile.first_name }} {{ profile.last_name }}"/>
+                {% else %}
+                    <img class="profile-picture" src="{% static 'images/default.jpg' %}" alt="{{ profile.first_name }} {{ profile.last_name }}"/>
+                {% endif %}
+            </div>
+            <div class="details-text">
+                <p>Username: {{ profile.username }}</p>
+                <p>Email: {{ profile.email }}</p>
+                <p>Age: {{ profile.age }}</p>
+                <p>Total price: {{ profile.total_car_price }}</p>
+            </div>
+        </div>
+
+        <div class="edit-delete">
+            <a href="{% url 'profile-edit' pk=profile.id %}">Edit</a>
+            <a href="{% url 'profile-delete' pk=profile.id %}">Delete</a>
+        </div>
     </div>
 
 {% endblock %}

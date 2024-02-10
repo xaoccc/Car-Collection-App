@@ -28,6 +28,24 @@ main {
     margin: 0 auto;
 }
 
+form {
+    margin-top: 10em;
+}
+
+form div {
+    margin: 0.5em 0;
+}
+
+form label {
+    margin-right: 0.6em;
+}
+
+input, select {
+    padding: 0.5em;
+    border-radius: 0.5em;
+    border: none;
+}
+
 .right-nav-link {
     font-size: 1.2em;
 }
@@ -88,8 +106,24 @@ h1 {
     z-index: -1;
 }
 
-.dashboard img, .details img {
+.car-picture-small {
     max-width: 20rem;
+}
+
+.car-picture-small {
+    max-width: 30rem;
+}
+
+.profile-picture {
+    max-width: 10rem;
+}
+
+.image-wrapper {
+    border-radius: 50%;
+    max-width: 10rem;
+    max-height: 10rem;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .dashboard {
