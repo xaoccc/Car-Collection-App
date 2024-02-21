@@ -116,6 +116,7 @@ h1 {
 
 .profile-picture {
     max-width: 10rem;
+    aspect-ratio: 1;
 }
 
 .image-wrapper {
@@ -159,4 +160,8 @@ h1 {
 
 .edit-delete a {
     margin-left: 1em;
+}
+
+a:hover {
+    color: cyan;
 }
