@@ -109,6 +109,7 @@ h1 {
 
 .profile-picture {
     max-width: 10rem;
+    aspect-ratio: 1;
 }
 
 .image-wrapper {
@@ -149,6 +150,7 @@ h1 {
     margin-left: 1em;
 }
 
+<<<<<<< HEAD
 
 .dashboard {
     max-width: 1400px;
@@ -182,4 +184,8 @@ a:hover {
     max-height: 400px;
     object-fit: cover;
     display: block;
+=======
+a:hover {
+    color: cyan;
+>>>>>>> 4e039aba565885987e2da48f874618e2d6eee5d1
 }
