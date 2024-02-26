@@ -4,12 +4,6 @@ from carProject.car.models import Car
 from carProject.car_owner.models import Profile
 from carProject.car.forms import CarCreateForm, CarDeleteForm
 
-class ReadonlyViewMixin:
-    def get_form(self, form_class=None):
-        form = super().get_form(form_class=form_class)
-        for field in form.fields.values():
-            field.widget.attrs["readonly"] = "readonly"
-        return form
 
 class GetProfileMixin:
     def get_context_data(self, **kwargs):
@@ -35,7 +29,7 @@ class CarEditView(GetProfileMixin, UpdateView):
     fields = '__all__'
 
 
-class CarDeleteView(ReadonlyViewMixin, GetProfileMixin, DeleteView):
+class CarDeleteView(GetProfileMixin, DeleteView):
     model = Car
     form_class = CarDeleteForm
     template_name = 'car/car-delete.html'
