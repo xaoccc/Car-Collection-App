@@ -106,13 +106,6 @@ h1 {
     z-index: -1;
 }
 
-.car-picture-small {
-    max-width: 20rem;
-}
-
-.car-picture-small {
-    max-width: 30rem;
-}
 
 .profile-picture {
     max-width: 10rem;
@@ -126,12 +119,7 @@ h1 {
     margin: 0 auto;
 }
 
-.dashboard {
-    max-width: 1400px;
-    margin: 20px auto;
-    display: flex;
-    justify-content: space-evenly;
-}
+
 
 .details {
     display: flex;
@@ -159,4 +147,39 @@ h1 {
 
 .edit-delete a {
     margin-left: 1em;
+}
+
+
+.dashboard {
+    max-width: 1400px;
+    margin: 20px auto;
+
+}
+
+.car {
+    display: inline-block;
+    margin: 20px;
+}
+
+.car-picture-small {
+    width: 300px;
+    max-height: 150px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.car-picture-small:hover {
+    opacity: 0.6;
+}
+
+a:hover {
+    color: rgb(0,200,256);
+}
+
+.car-picture-big {
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
 }

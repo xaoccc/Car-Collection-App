@@ -2,7 +2,14 @@ from django.urls import reverse_lazy
 from django.views.generic import DetailView, FormView, ListView, UpdateView, DeleteView, CreateView
 from carProject.car.models import Car
 from carProject.car_owner.models import Profile
-from carProject.car.forms import CarCreateForm
+from carProject.car.forms import CarCreateForm, CarDeleteForm
+
+class ReadonlyViewMixin:
+    def get_form(self, form_class=None):
+        form = super().get_form(form_class=form_class)
+        for field in form.fields.values():
+            field.widget.attrs["readonly"] = "readonly"
+        return form
 
 class GetProfileMixin:
     def get_context_data(self, **kwargs):
@@ -28,12 +35,16 @@ class CarEditView(GetProfileMixin, UpdateView):
     fields = '__all__'
 
 
-class CarDeleteView(GetProfileMixin, DeleteView):
+class CarDeleteView(ReadonlyViewMixin, GetProfileMixin, DeleteView):
     model = Car
+    form_class = CarDeleteForm
     template_name = 'car/car-delete.html'
     success_url = reverse_lazy('car-catalogue')
 
-
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'] = self.object
+        return kwargs
 
 
 class CarDetailView(GetProfileMixin, DetailView):

@@ -4,13 +4,22 @@
 {% if all_cars %}
     <h1>Car Collection</h1>
     <section class="dashboard">
+
         {% for car in all_cars %}
+
         <div class="car">
-            <img class="car-picture-small" src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
-            <h3 class="title">Model: {{ car.model }}</h3>
-            <p class="description">Year: {{ car.year }}</p>
-            <a class="details-btn" href="{% url 'car-details' pk=car.pk %}">Details</a>
+            <a class="details-btn" href="{% url 'car-details' pk=car.pk %}">
+                <img class="car-picture-small" src="{{ car.image_url }}" alt="{{ car.model }} [{{ car.year }}]"/>
+            </a>
+            <div>
+                <h3 class="title">Model: {{ car.model }}</h3>
+                <p class="description">Year: {{ car.year }}</p>
+                <a class="details-btn" href="{% url 'car-details' pk=car.pk %}">Details</a>
+            </div>
         </div>
+
+
+
         {% endfor %}
     </section>
 {% else %}
