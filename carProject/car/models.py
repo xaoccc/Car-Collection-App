@@ -23,3 +23,6 @@ class Car(models.Model):
 
     def get_absolute_url(self):
         return reverse('car-catalogue', args=[])
+
+    def __str__(self):
+        return f"{self.model} [{self.year}]"
